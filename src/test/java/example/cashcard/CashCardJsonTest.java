@@ -17,9 +17,8 @@ public class CashCardJsonTest {
     private JacksonTester<CashCard> json;//JacksonTester handles serialization/deserialization of JSON objects.
 
 
-    //Red Zone: Test will fail due to no expected.json file created.
-    //Purposely included empty expected.json file which will continue to cause this test to fail.
-    @Test
+
+    @Test//Green Zone: all related files updated for test to now pass.
     public void cashCardSerializationTest() throws IOException {
         CashCard cashCard = new CashCard(99L, 123.45);
         assertThat(json.write(cashCard)).isStrictlyEqualToJson("expected.json");
@@ -31,5 +30,5 @@ public class CashCardJsonTest {
                 .isEqualTo(123.45);
     }
 }
-
+    
 
