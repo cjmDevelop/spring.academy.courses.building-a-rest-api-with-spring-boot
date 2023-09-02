@@ -1,19 +1,34 @@
 package example.cashcard;
 
 import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.json.JsonTest;
+import org.springframework.boot.test.json.JacksonTester;
+
+import java.io.IOException;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+@JsonTest//Establishes all the related behavior to test JSON objects.
 public class CashCardJsonTest {
 
-   //Initial Test is now in the Green Zone: Test is passing.
+
+    @Autowired//@Autowired directs Spring to create an object of the requested type.
+    private JacksonTester<CashCard> json;//JacksonTester handles serialization/deserialization of JSON objects.
+
+    
+    //Red Zone: Test will fail as a CashCard class does not yet exist
     @Test
-    public void myFirstTest() {
-        assertThat(42).isEqualTo(42);
+    public void cashCardSerializationTest() throws IOException {
+        CashCard cashCard = new CashCard(99L, 123.45);
+        assertThat(json.write(cashCard)).isStrictlyEqualToJson("expected.json");
+        assertThat(json.write(cashCard)).hasJsonPathNumberValue("@.id");
+        assertThat(json.write(cashCard)).extractingJsonPathNumberValue("@.id")
+                .isEqualTo(99);
+        assertThat(json.write(cashCard)).hasJsonPathNumberValue("@.amount");
+        assertThat(json.write(cashCard)).extractingJsonPathNumberValue("@.amount")
+                .isEqualTo(123.45);
     }
 }
-   /*The Red, Green, Refactor Loop
-    - Red zone is when we write a failing test for the desired functionality.
-    - Green zone is when we implement the simplest and most concise solution to make the test pass.
-    - Refactor / look for opportunities to further reduce / simplify, and make the code more efficient
-      by reducing unneeded code; repeat the cycle.*/
+
+
