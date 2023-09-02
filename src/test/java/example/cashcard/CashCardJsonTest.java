@@ -6,10 +6,10 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class CashCardJsonTest {
 
-   //TDD: Initial Test, written to fail on purpose; based on the Red, Green, Refactor Loop.
+   //Initial Test is now in the Green Zone: Test is passing.
     @Test
     public void myFirstTest() {
-        assertThat(1).isEqualTo(42);
+        assertThat(42).isEqualTo(42);
     }
 }
    /*The Red, Green, Refactor Loop
