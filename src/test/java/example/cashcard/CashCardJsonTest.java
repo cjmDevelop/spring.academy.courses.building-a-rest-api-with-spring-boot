@@ -16,8 +16,9 @@ public class CashCardJsonTest {
     @Autowired//@Autowired directs Spring to create an object of the requested type.
     private JacksonTester<CashCard> json;//JacksonTester handles serialization/deserialization of JSON objects.
 
-    
-    //Red Zone: Test will fail as a CashCard class does not yet exist
+
+    //Red Zone: Test will fail due to no expected.json file created.
+    //Purposely included empty expected.json file which will continue to cause this test to fail.
     @Test
     public void cashCardSerializationTest() throws IOException {
         CashCard cashCard = new CashCard(99L, 123.45);
