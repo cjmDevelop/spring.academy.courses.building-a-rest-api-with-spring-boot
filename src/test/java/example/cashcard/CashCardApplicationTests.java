@@ -27,7 +27,7 @@ class CashCardApplicationTests {
 		//DocumentContext converts the response String into a JSON-aware object with lots of helper methods.
         DocumentContext documentContext = JsonPath.parse(response.getBody());
         Number id = documentContext.read("$.id");
-        assertThat(id).isNotNull();
+        assertThat(id).isEqualTo(99);
 
     }
 
