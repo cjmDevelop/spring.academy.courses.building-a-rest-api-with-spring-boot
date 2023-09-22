@@ -1,4 +1,4 @@
-# Building a REST API with Spring Boot
+# Building a REST API with Spring Boot.
 
 This project is part of my learning journey in Test Driven Development (TDD) and the Red-Green-Refactor approach. It is based on the online courses provided by [spring.io](https://spring.io) under [spring.academy/courses](https://spring.academy/courses) - Building a REST API with Spring Boot.
 
