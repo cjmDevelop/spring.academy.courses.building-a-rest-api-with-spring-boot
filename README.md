@@ -8,5 +8,5 @@ Project is based from the online courses provided by spring.io | spring.academy/
 * Spring Web
 * Spring Data
 
-  
+  # I used Windows 10 when completing this project and used gradle build with gradlew test command to run all the application tests. To run the same application tests execute ./gradlew test    
 
